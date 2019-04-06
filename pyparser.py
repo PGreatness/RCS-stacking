@@ -137,15 +137,13 @@ def parse_file( fname, edges, polygons, csystems, screen, color ):
         elif line == 'scale':
             print('SCALE\t' + str(args))
             t = make_scale(float(args[0]), float(args[1]), float(args[2]))
-            matrix_mult(t, csystems[-1])
-            matrix_mult(csystems[-1], t)
+            matrix_mult(csystems[-1], t )
             csystems[-1] = t
 
         elif line == 'move':
             print('MOVE\t' + str(args))
             t = make_translate(float(args[0]), float(args[1]), float(args[2]))
-            matrix_mult(t, csystems[-1])
-            matrix_mult(csystems[-1], t)
+            matrix_mult(csystems[-1], t )
             csystems[-1] = t
 
         elif line == 'rotate':
@@ -173,9 +171,9 @@ def parse_file( fname, edges, polygons, csystems, screen, color ):
             polygons = []
 
         elif line == 'display' or line == 'save':
-            clear_screen(screen)
-            draw_lines(edges, screen, color)
-            draw_polygons(polygons, screen, color)
+            # clear_screen(screen)
+            # draw_lines(edges, screen, color)
+            # draw_polygons(polygons, screen, color)
 
             if line == 'display':
                 display(screen)
@@ -192,3 +190,4 @@ def parse_file( fname, edges, polygons, csystems, screen, color ):
             csystems.pop()
             c -= 1
         c+= 1
+        print(csystems)
