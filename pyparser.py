@@ -173,9 +173,9 @@ def parse_file( fname, edges, polygons, csystems, screen, color ):
             polygons = []
 
         elif line == 'display' or line == 'save':
-            clear_screen(screen)
-            draw_lines(edges, screen, color)
-            draw_polygons(polygons, screen, color)
+            # clear_screen(screen)
+            # draw_lines(edges, screen, color)
+            # draw_polygons(polygons, screen, color)
 
             if line == 'display':
                 display(screen)
@@ -192,3 +192,4 @@ def parse_file( fname, edges, polygons, csystems, screen, color ):
             csystems.pop()
             c -= 1
         c+= 1
+        print(csystems)
